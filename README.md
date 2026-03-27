@@ -30,6 +30,11 @@ This library fills the gap and enables your ESP32 microcontroller to act as a TC
 - ESP32 board or any other Microcontroller that supports the Arduino NetworkServer (e.g. WiFiServer)
 - WiFi network 
 
+## Documentation
+
+- [Class Documentation](https://pschatzmann.github.io/VirtualGamePadArduino/html/classGamepadServer.html)
+- [Examples](/examples)
+
 ## Installation
 
 For Arduino, you can download the library as zip and call include Library -> zip library. Or you can git clone this project into the Arduino libraries folder e.g. with
