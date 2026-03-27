@@ -167,9 +167,9 @@ class GamepadServer {
   void begin() { _server->begin(); }
 
   /// Set the callback to be called when a gamepad reading is received
-  void setCallback(GamepadStateCallback cb, void* ref = this) {
+  void setCallback(GamepadStateCallback cb, void* ref = nullptr) {
     _callback = cb;
-    _callbackRef = ref;
+    _callbackRef = ref == nullptr ? this : ref;
   }
 
   /// To be called in loop to handle incoming client connections and data.
@@ -221,7 +221,7 @@ class GamepadServer {
       } else {
         // Success
         _state = GamepadState(reading);
-        if (_callback) _callback(_state, callbackRef);
+        if (_callback) _callback(_state, _callbackRef);
         buffer.erase(buffer.begin(), buffer.begin() + used);
       }
     }
