@@ -1,0 +1,5 @@
+<map id="GamepadState" name="GamepadState">
+<area shape="rect" id="Node000001" title="Represents the full state of a gamepad, including all button states and thumbsticks." alt="" coords="15,108,134,133"/>
+<area shape="rect" id="Node000002" href="$structThumbstickResult.html" title="Represents the state of a gamepad thumbstick, including position and angle helpers." alt="" coords="5,5,144,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,45,77,108,72,108,72,45"/>
+</map>
