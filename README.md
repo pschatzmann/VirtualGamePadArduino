@@ -1,4 +1,9 @@
+
 # VirtualGamePad Arduino Library
+
+[![Arduino Library](https://img.shields.io/badge/Arduino-Library-blue.svg)](https://www.arduino.cc/reference/en/libraries/)
+![License: GPL v3](https://img.shields.io/badge/License-GNU%20GENERAL%20PUBLIC%20LICENSE-blue.svg)
+
 
 I was looking for some easy to use controller application that runs my Android mobile phone to control some __custom drones__ or __robot cars__. Unfortunately, I did not find anything that would meet the following requirements:
 
@@ -22,9 +27,19 @@ This library fills the gap and enables your ESP32 microcontroller to act as a TC
 
 ## Requirements
 
-- ESP32 board or any other Microcontroller that supports WiFiServer
-- Arduino core for ESP32
-- WiFi network
+- ESP32 board or any other Microcontroller that supports the Arduino NetworkServer (e.g. WiFiServer)
+- WiFi network 
+
+## Installation
+
+For Arduino, you can download the library as zip and call include Library -> zip library. Or you can git clone this project into the Arduino libraries folder e.g. with
+
+```
+cd  ~/Documents/Arduino/libraries
+git clone https://github.com/pschatzmann/VirtualGamepadArduino.git
+```
+
+
 
 ## Credits
 
