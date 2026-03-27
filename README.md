@@ -5,9 +5,9 @@
 ![License: GPL v3](https://img.shields.io/badge/License-GNU%20GENERAL%20PUBLIC%20LICENSE-blue.svg)
 
 
-I was looking for some easy to use controller application that runs my Android mobile phone to control some __custom drones__ or __robot cars__. Unfortunately, I did not find anything that would meet the following requirements:
+I was looking for some easy to use controller application that runs my Android mobile phone to control some __custom drones__ or __robot cars__ that are using my [TinyRobotics](https://github.com/pschatzmann/TinyRobotics) project. Unfortunately, I did not find anything that would meet the following requirements:
 
-- At least one thumbstick (better two)
+- Two thumbsticks that provides high resolution angles and magnitudes
 - Multiple buttons
 - A defined communications protocol that can be used by Microcontrollers
 - An Arduino Library to receive and process the data
