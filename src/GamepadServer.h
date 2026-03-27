@@ -112,7 +112,7 @@ struct GamepadState {
 };
 
 /// Callback type for when a new gamepad state is received
-typedef void (*GamepadStateCallback)(const GamepadState&);
+typedef void (*GamepadStateCallback)(const GamepadState&, void* ref);
 
 /**
  * @class GamepadServer
@@ -159,14 +159,18 @@ typedef void (*GamepadStateCallback)(const GamepadState&);
 
 class GamepadServer {
  public:
-  /// Default constructor: takes a reference to a NetworkServer (e.g. WiFiServer) 
+  /// Default constructor: takes a reference to a NetworkServer (e.g.
+  /// WiFiServer)
   GamepadServer(NetworkServer& server) : _server(&server) {}
 
   /// Start the server. Call in setup() after instantiating GamepadServer.
   void begin() { _server->begin(); }
 
   /// Set the callback to be called when a gamepad reading is received
-  void setCallback(GamepadStateCallback cb) { _callback = cb; }
+  void setCallback(GamepadStateCallback cb, void* ref = this) {
+    _callback = cb;
+    _callbackRef = ref;
+  }
 
   /// To be called in loop to handle incoming client connections and data.
   void handleClient() {
@@ -186,12 +190,13 @@ class GamepadServer {
   }
 
   /// Provide the actual state
-  GamepadState& getState() { return state; }
+  GamepadState& getState() { return _state; }
 
  private:
   NetworkServer* _server = nullptr;
   GamepadStateCallback _callback = nullptr;
-  GamepadState state;
+  GamepadState _state;
+  void* _callbackRef = this;
 
   // Helper: process as many complete packets as possible from the buffer
   void processBuffer(std::vector<uint8_t>& buffer) {
@@ -215,8 +220,8 @@ class GamepadServer {
         }
       } else {
         // Success
-        state = GamepadState(reading);
-        if (_callback) _callback(state);
+        _state = GamepadState(reading);
+        if (_callback) _callback(_state, callbackRef);
         buffer.erase(buffer.begin(), buffer.begin() + used);
       }
     }

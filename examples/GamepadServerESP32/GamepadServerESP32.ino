@@ -24,7 +24,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Setup server: using lambda callback to print some received gamepad states
-  server.setCallback([](const GamepadState& state) {
+  server.setCallback([](const GamepadState& state, void*) {
     if (state.a) Serial.println("A button pressed");
     if (state.b) Serial.println("B button pressed");
     if (state.x) Serial.println("X button pressed");
